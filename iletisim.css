@@ -1,0 +1,31 @@
+.box{
+    background-color: antiquewhite;
+    height: 40px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+    
+}
+#mesaj{
+    background-color: antiquewhite;
+    height: 150px;
+    width: 200px;
+    border-radius: 10px;
+    text-align: center;
+}
+#submit{
+    background-color: rgb(255, 184, 91);
+    height: 50px;
+    width: 207px;
+    border-radius: 10px;
+}
+#submit:hover{
+    background-color: #ec8e3b;
+    
+}
+#formdiv{
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    
+}
