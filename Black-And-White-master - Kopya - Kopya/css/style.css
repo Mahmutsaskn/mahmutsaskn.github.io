@@ -1,0 +1,563 @@
+.profil-container {
+    display: flex;            /* Resim ve yazıyı yan yana koyar */
+    align-items: center;      /* Dikey ortalama */
+    margin-top: 0px;
+	margin-left: -100;
+}
+
+.profil-resmi {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 0px;       /* Yazı ile arada boşluk */
+    flex-shrink: 0;           /* Resmin küçülmesini engeller */
+}
+
+.profil-yazi {
+    display: flex;
+    flex-direction: column;   /* Yazıları üst üste dizer */
+    justify-content: center;  /* Dikey ortalar */
+}
+
+.profil-yazi h1 {
+    margin: 0;
+    font-size: 36px;          /* Büyük yazı */
+    line-height: 1.2;
+}
+
+.profil-yazi p {
+    margin: 5px 0;
+    font-size: 18px;          /* Alt başlıklar */
+    color: #555;
+}
+
+
+.ozgecmis-modern .container {
+    display: flex;
+    gap: 40px;           /* İki sütun arası boşluk */
+    flex-wrap: wrap;     /* Küçük ekranlarda alt alta gelir */
+    margin-top: -50px;
+}
+
+.profil-sutun {
+    flex: 1;
+    min-width: 250px;
+    text-align: center;
+}
+
+.profil-sutun .profil-resmi {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+	margin-top: 30px;
+}
+
+.profil-sutun h1 {
+    margin: 10px 0 5px 0;
+    font-size: 32px;
+}
+
+.profil-sutun p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #555;
+}
+
+.profil-sutun .social-icons img {
+    width: 30px;
+    margin: 0 5px;
+    transition: transform 0.3s;
+}
+
+.profil-sutun .social-icons img:hover {
+    transform: scale(1.2);
+}
+
+ #projects div:hover img {
+    transform: scale(1.1);
+  }
+
+  #projects div:hover .overlay {
+    opacity: 1;
+  }
+
+			
+/* Yukarı Çık Butonu */
+#yukari-btn {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  z-index: 99;
+  background: linear-gradient(145deg, #1b1b1b, #2d2d2d);
+  border: none;
+  outline: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+/* Fotoğrafın boyutu */
+#yukari-btn img {
+  width: 60%;
+  height: 60%;
+  object-fit: contain;
+  filter: brightness(0) invert(1); /* Siyah arka planda beyaz gibi görünür */
+  transition: 0.3s ease;
+}
+
+/* Hover efekti */
+#yukari-btn:hover {
+  background: linear-gradient(145deg, #000000, #3a3a3a);
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+}
+#yukari-btn:hover img {
+  transform: translateY(-3px);
+}
+
+/* Mobilde biraz küçült */
+@media (max-width: 768px) {
+  #yukari-btn {
+    width: 50px;
+    height: 50px;
+    bottom: 15px;
+    right: 15px;
+	
+  }
+}
+
+			
+			
+body {
+  margin: 0;
+  background-color: #fff;
+  font-family:"Segoe UI", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+header {
+	
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 80px; /* 60 yerine 120 yapıldı        */
+  border-bottom: 1px solid #ddd;
+	margin-bottom:30px;
+	width: 75%;
+	margin: 0 auto;
+
+}
+
+		
+.logo {
+  margin-left:0px; /* Logoyu biraz sağa alır */
+}
+
+.logo img {
+  height: 90px;
+  width: auto;
+  align-items: center;
+  margin-left: 0px;
+}
+
+.menu  {
+  display: flex;
+  width: 58%;
+  gap: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 23px;
+
+}
+
+.menu a {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  overflow: hidden;
+  display: inline-block;
+  
+}
+
+.menu a span {
+  display:inline-flex;
+  transition: transform 0.4s ease, color 0.4s ease;
+}
+
+/* Hover olunca harfler yukarı kayıyor ve renk değişiyor */
+.menu a:hover span {
+  transform: translateY(-5px);
+  color: #00c6ff;
+}
+
+
+.cizgi{
+  width: 75%; 
+  margin: 30px auto;
+  border: none;
+  height: 4px;
+  background: linear-gradient(to right, red, blue);
+  
+    
+}
+
+
+
+/* Download CV Butonu */
+.cv-btn {
+    height: 50px;
+    width: 200px;
+  background: linear-gradient(145deg, #1b1b1b, #2d2d2d);
+  color: #fff;
+  padding: 10px 24px;
+  border-radius: 30px; /* oval köşeler */
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 400;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  margin: auto;
+  
+}
+
+/* Yukarı çık butonuyla aynı hover efekti */
+.cv-btn:hover {
+  background: linear-gradient(to right, red, blue);
+  color: white;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.7);
+  border: #000;
+  
+}
+
+
+
+			/* Hamburger Menü */
+.hamburger-menu {
+  display: none;
+  font-size: 30px;
+  cursor: pointer;
+  color: #000;
+   z-index: 10000;
+}
+
+/* Mobil görünüm */
+@media (max-width: 868px) {
+  .menu {
+  
+    display: none;
+    flex-direction: column;
+    background-color: #fff;
+    position: absolute;
+    top: 145px;
+    right: 0;
+    width: 100%;
+     z-index: 9999; 
+    text-align: center;
+    border-top: 1px solid #ddd;
+    padding: 20px 0;
+    margin: 0;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+
+  .hamburger-menu {
+    display: block;
+    
+  }
+}
+
+			
+			
+			
+			
+			
+			
+			
+			
+
+
+
+
+			
+			
+			
+			
+			 
+
+  
+
+ /* Tailwind CSS reset'ini engelle */
+    .project-portfolio-widget img {
+      max-width: none !important;
+      height: auto !important;
+    }
+    
+    .project-portfolio-widget h1, .project-portfolio-widget h2, .project-portfolio-widget h3 {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+    .project-portfolio-widget {
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      width: 100%;
+      min-height: 500px;
+    }
+
+    .project-portfolio-widget * {
+      box-sizing: border-box;
+    }
+
+    .project-portfolio-widget .container {
+      background: linear-gradient(to right, #8A2BE2, #191970);
+      min-height: 500px;
+      width: 100%;
+      padding: 60px 20px;
+      border-radius: 20px;
+    }
+
+    .project-portfolio-widget .main-title {
+      text-align: center;
+      color: white;
+      font-size: 48px;
+      font-weight: bold;
+      margin-bottom: 50px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .project-portfolio-widget .projects-container {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .project-portfolio-widget .projects-grid {
+      display: flex;
+      gap: 22px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      padding: 0 60px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .project-portfolio-widget .projects-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-portfolio-widget .project-card {
+      min-width: 225px;
+      flex-shrink: 0;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      padding: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      display: block;
+    }
+
+    .project-portfolio-widget .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+
+    .project-portfolio-widget .nav-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(10px);
+      border: none;
+      color: white;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      z-index: 10;
+    }
+
+    .project-portfolio-widget .nav-button:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .project-portfolio-widget .nav-button.left {
+      left: 10px;
+    }
+
+    .project-portfolio-widget .nav-button.right {
+      right: 10px;
+    }
+
+
+
+    .project-portfolio-widget .project-image {
+      width: 100%;
+      height: 150px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 48px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-portfolio-widget .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 12px;
+    }
+
+    .project-portfolio-widget .project-category {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 6px;
+    }
+
+    .project-portfolio-widget .project-description {
+      color: white;
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .project-portfolio-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .project-portfolio-modal.active {
+      display: flex;
+    }
+
+
+    .project-portfolio-modal .modal-content {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 30px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      max-height: 90%;
+      overflow-y: auto;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .project-portfolio-modal .close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: background 0.3s ease;
+    }
+
+    .project-portfolio-modal .close-btn:hover {
+      background: rgba(255,255,255,0.1);
+    }
+
+    .project-portfolio-modal .modal-image {
+      width: 100%;
+      height: 250px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      border-radius: 20px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 80px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .project-portfolio-modal .modal-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .project-portfolio-modal .modal-description {
+      color: white;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .project-portfolio-modal .modal-category {
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 14px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 25px;
+    }
+
+    .project-portfolio-modal .project-button {
+      background: linear-gradient(to right, #8A2BE2, #191970);
+      color: white;
+      border: none;
+      padding: 15px 40px;
+      border-radius: 25px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+    }
+
+    .project-portfolio-modal .project-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 768px) {
+      .main-title {
+        font-size: 32px;
+      }
+
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-content {
+        padding: 30px;
+      }
+    }
