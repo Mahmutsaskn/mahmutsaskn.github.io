@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Bistro QR Menü</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons (Lucide) -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Hide Scrollbar */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Glassmorphism utilities */
+        .glass {
+            background: rgba(30, 30, 30, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+</head>
+<body class="antialiased pb-10">
+
+    <!-- Header / Banner Area -->
+    <div class="relative w-full h-64 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&q=80')] bg-cover bg-center">
+            <div class="absolute inset-0 bg-gradient-to-b from-black/30 via-black/60 to-[#121212]"></div>
+        </div>
+        
+        <!-- Header Content -->
+        <div class="absolute bottom-0 left-0 w-full p-6 z-10">
+            <div class="flex items-end justify-between">
+                <div>
+                    <span class="px-3 py-1 bg-orange-500 text-white text-xs font-bold rounded-full uppercase tracking-wider mb-2 inline-block">Açık</span>
+                    <h1 class="text-4xl font-bold text-white tracking-tight mb-1">LUNA</h1>
+                    <p class="text-gray-300 text-sm font-medium">Fine Coffee & Desserts</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-3 rounded-2xl border border-white/10">
+                    <i data-lucide="star" class="text-yellow-400 w-5 h-5 fill-yellow-400"></i>
+                    <span class="text-xs font-bold mt-1 block text-center">4.8</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Bar (Sticky-ish) -->
+    <div class="px-4 mt-6">
+        <div class="relative group">
+            <div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <i data-lucide="search" class="w-5 h-5 text-gray-500 group-focus-within:text-orange-500 transition-colors"></i>
+            </div>
+            <input 
+                type="text" 
+                id="searchInput"
+                placeholder="Canın ne çekiyor?" 
+                class="w-full bg-[#1E1E1E] text-white pl-11 pr-4 py-4 rounded-2xl border border-white/5 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/50 transition-all placeholder-gray-600 text-sm font-medium"
+            >
+        </div>
+    </div>
+
+    <!-- Categories -->
+    <div class="sticky top-0 z-30 pt-4 pb-2 bg-[#121212]/95 backdrop-blur-sm transition-all" id="stickyHeader">
+        <div id="categoryContainer" class="flex overflow-x-auto no-scrollbar px-4 gap-3">
+            <!-- Categories will be injected here -->
+        </div>
+        <!-- Fade effect for scroll -->
+        <div class="absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-[#121212] to-transparent pointer-events-none"></div>
+    </div>
+
+    <!-- Featured (Popular) Section -->
+    <div class="px-4 mt-6 mb-4">
+        <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold text-white">Popüler Lezzetler 🔥</h2>
+        </div>
+        
+        <!-- Horizontal Scroll Cards -->
+        <div class="flex overflow-x-auto no-scrollbar gap-4 pb-4">
+            <div class="min-w-[160px] glass-card rounded-2xl p-3 relative overflow-hidden group">
+                <div class="h-28 w-full rounded-xl bg-gray-800 mb-3 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Latte">
+                    <span class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-bold text-white">₺85</span>
+                </div>
+                <h3 class="font-bold text-sm truncate">Caramel Latte</h3>
+                <p class="text-gray-500 text-xs mt-1">Sıcak İçecekler</p>
+            </div>
+            
+            <div class="min-w-[160px] glass-card rounded-2xl p-3 relative overflow-hidden group">
+                <div class="h-28 w-full rounded-xl bg-gray-800 mb-3 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1627376326120-f571b0722df1?w=400&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="San Sebastian">
+                    <span class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-bold text-white">₺140</span>
+                </div>
+                <h3 class="font-bold text-sm truncate">San Sebastian</h3>
+                <p class="text-gray-500 text-xs mt-1">Tatlılar</p>
+            </div>
+
+            <div class="min-w-[160px] glass-card rounded-2xl p-3 relative overflow-hidden group">
+                <div class="h-28 w-full rounded-xl bg-gray-800 mb-3 overflow-hidden relative">
+                    <img src="https://images.unsplash.com/photo-1626139556272-b8d42323e4f7?w=500&q=80" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" alt="Ayran">
+                    <span class="absolute top-2 right-2 bg-black/60 backdrop-blur-md px-2 py-1 rounded-lg text-xs font-bold text-white">₺40</span>
+                </div>
+                <h3 class="font-bold text-sm truncate">Yayık Ayran</h3>
+                <p class="text-gray-500 text-xs mt-1">Soğuk İçecekler</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Menu List -->
+    <div class="px-4 mt-2">
+        <h2 id="categoryTitle" class="text-xl font-bold text-white mb-4 flex items-center gap-2">
+            Tüm Menü
+        </h2>
+        
+        <div id="menuContainer" class="space-y-4">
+            <!-- Menu items injected via JS -->
+        </div>
+    </div>
+
+    <!-- Simple Text Footer -->
+    <div class="py-8 text-center text-gray-600 text-xs mt-8 border-t border-white/5 mx-6">
+        <p class="font-bold text-gray-500 mb-1">LUNA Cafe</p>
+        <p>Afiyet olsun.</p>
+    </div>
+
+    <!-- Javascript -->
+    <script>
+        // Data
+        const CATEGORIES = [
+            { id: 'all', name: 'Tümü' },
+            { id: 'sicak', name: 'Sıcaklar' },
+            { id: 'soguk', name: 'Soğuklar' },
+            { id: 'tatli', name: 'Tatlılar' },
+            { id: 'atistirmalik', name: 'Atıştırma' },
+            { id: 'kahvalti', name: 'Kahvaltı' },
+        ];
+
+        const MENU_ITEMS = [
+            { id: 1, category: 'sicak', name: 'Türk Kahvesi', price: 60, desc: 'Çifte kavrulmuş, lokum ile.', image: 'https://images.unsplash.com/photo-1596952282839-a035a0f2694f?w=500&q=80' },
+            { id: 2, category: 'sicak', name: 'Filtre Kahve', price: 75, desc: '%100 Arabica, yumuşak içim.', image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500&q=80' },
+            { id: 3, category: 'sicak', name: 'Latte', price: 85, desc: 'Espresso & buharla ısıtılmış süt.', image: 'https://images.unsplash.com/photo-1572442388796-11668a67e53d?w=500&q=80' },
+            { id: 5, category: 'soguk', name: 'Ev Yapımı Limonata', price: 90, desc: 'Taze nane yaprakları ile.', image: 'https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500&q=80' },
+            { id: 6, category: 'soguk', name: 'Iced Americano', price: 80, desc: 'Double espresso, buz ve su.', image: 'https://images.unsplash.com/photo-1517701604599-bb29b5c73553?w=500&q=80' },
+            { id: 9, category: 'tatli', name: 'San Sebastian', price: 140, desc: 'Belçika çikolatası sosuyla.', image: 'https://images.unsplash.com/photo-1627376326120-f571b0722df1?w=500&q=80' },
+            { id: 10, category: 'tatli', name: 'Tiramisu', price: 130, desc: 'İtalyan usulü, mascarpone.', image: 'https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=500&q=80' },
+            { id: 12, category: 'atistirmalik', name: 'Kaşarlı Tost', price: 90, desc: 'Ekşi mayalı ekmek ile.', image: 'https://images.unsplash.com/photo-1584776296944-ab6fb4f71921?w=500&q=80' },
+            { id: 13, category: 'atistirmalik', name: 'Cajun Sepeti', price: 150, desc: 'Tavuk parçaları, patates.', image: 'https://images.unsplash.com/photo-1562967914-608f82629710?w=500&q=80' },
+        ];
+
+        let activeCategory = 'all';
+        let searchTerm = '';
+
+        // Elements
+        const categoryContainer = document.getElementById('categoryContainer');
+        const menuContainer = document.getElementById('menuContainer');
+        const searchInput = document.getElementById('searchInput');
+        const categoryTitle = document.getElementById('categoryTitle');
+
+        function init() {
+            renderCategories();
+            renderMenu();
+            lucide.createIcons();
+
+            searchInput.addEventListener('input', (e) => {
+                searchTerm = e.target.value.toLowerCase();
+                renderMenu();
+            });
+        }
+
+        function renderCategories() {
+            categoryContainer.innerHTML = CATEGORIES.map(cat => `
+                <button 
+                    onclick="setCategory('${cat.id}')"
+                    class="px-5 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all duration-300 border ${
+                        activeCategory === cat.id 
+                        ? 'bg-orange-500 border-orange-500 text-white shadow-lg shadow-orange-500/20' 
+                        : 'bg-[#1E1E1E] border-white/5 text-gray-400 hover:text-white hover:bg-[#252525]'
+                    }"
+                >
+                    ${cat.name}
+                </button>
+            `).join('');
+        }
+
+        function renderMenu() {
+            const filteredItems = MENU_ITEMS.filter(item => {
+                const matchesCategory = activeCategory === 'all' || item.category === activeCategory;
+                const matchesSearch = item.name.toLowerCase().includes(searchTerm);
+                return matchesCategory && matchesSearch;
+            });
+
+            const currentCatName = CATEGORIES.find(c => c.id === activeCategory)?.name || 'Menü';
+            categoryTitle.innerHTML = `
+                ${currentCatName}
+                ${searchTerm ? `<span class="text-sm font-normal text-gray-500 ml-2">("${searchTerm}")</span>` : ''}
+            `;
+
+            if (filteredItems.length === 0) {
+                menuContainer.innerHTML = `
+                    <div class="flex flex-col items-center justify-center py-12 text-gray-500">
+                        <i data-lucide="search-x" class="w-12 h-12 mb-3 opacity-50"></i>
+                        <p>Sonuç bulunamadı.</p>
+                    </div>
+                `;
+            } else {
+                menuContainer.innerHTML = filteredItems.map(item => `
+                    <div class="glass-card rounded-2xl p-3 flex gap-4 hover:bg-white/5 transition-colors cursor-pointer group">
+                        <!-- Image Area -->
+                        <div class="w-28 h-28 flex-shrink-0 rounded-xl overflow-hidden relative">
+                            <img 
+                                src="${item.image}" 
+                                alt="${item.name}" 
+                                class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                                onerror="this.src='https://placehold.co/100x100?text=IMG'"
+                            >
+                            <!-- Add Button Overlay -->
+                            <div class="absolute bottom-2 right-2 bg-white text-black w-7 h-7 rounded-full flex items-center justify-center shadow-lg opacity-0 group-hover:opacity-100 transition-opacity translate-y-2 group-hover:translate-y-0 duration-300">
+                                <i data-lucide="plus" class="w-4 h-4"></i>
+                            </div>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="flex-1 flex flex-col justify-between py-1 min-w-0">
+                            <div>
+                                <h3 class="font-bold text-white text-lg leading-tight mb-1 truncate">${item.name}</h3>
+                                <p class="text-xs text-gray-400 line-clamp-2 leading-relaxed">${item.desc}</p>
+                            </div>
+                            
+                            <div class="flex items-center justify-between mt-2">
+                                <span class="font-bold text-orange-400 text-lg">₺${item.price}</span>
+                                <div class="flex gap-1">
+                                    ${[1,2,3,4,5].map(() => `<i data-lucide="star" class="w-3 h-3 text-yellow-500/30 fill-yellow-500/30"></i>`).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+            
+            lucide.createIcons();
+        }
+
+        window.setCategory = (id) => {
+            activeCategory = id;
+            renderCategories();
+            renderMenu();
+        };
+
+        init();
+    </script>
+</body>
+</html>
